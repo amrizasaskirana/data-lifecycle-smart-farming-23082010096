@@ -9,7 +9,7 @@ st.set_page_config(page_title="Smart Farming Dashboard", layout="wide")
 st.title("🌱 Smart Farming Sensor Dashboard")
 
 # Load dataset
-df = pd.read_csv("data.csv")
+df = pd.read_csv("Smart_Farming_Crop_Yield_2024.csv")
 
 # ===============================
 # Sidebar
