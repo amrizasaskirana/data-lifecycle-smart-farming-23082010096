@@ -10,9 +10,11 @@ st.set_page_config(page_title="Smart Farming Dashboard", layout="wide")
 st.title("🌱 Smart Farming Sensor Dashboard")
 
 # ===============================
-# Load dataset
+# Load dataset (FIX PATH)
 # ===============================
-data_path = os.path.join("..", "data", "raw", "Smart_Farming_Crop_Yield_2024.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(BASE_DIR, "..", "data", "raw", "Smart_Farming_Crop_Yield_2024.csv")
+
 df = pd.read_csv(data_path)
 
 # ===============================
@@ -112,7 +114,6 @@ st.pyplot(fig4)
 # ===============================
 # Alert Message
 # ===============================
-
 if current_moisture < threshold:
     st.error("⚠️ Soil moisture below threshold! Irrigation needed.")
 else:
