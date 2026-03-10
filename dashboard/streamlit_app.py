@@ -15,7 +15,8 @@ st.title("🌱 Smart Farming Business Intelligence Dashboard")
 
 st.markdown("""
 Dashboard ini digunakan untuk **monitoring kondisi lahan pertanian secara real-time** berdasarkan data sensor.
-Dashboard membantu petani atau pengelola lahan dalam:
+
+Dashboard membantu pengelola lahan dalam:
 - Mengontrol **kelembaban tanah**
 - Mendeteksi **kebutuhan irigasi**
 - Menganalisis **korelasi antar sensor**
@@ -43,7 +44,7 @@ threshold = st.sidebar.slider(
 )
 
 # ===============================
-# BUSINESS KPI
+# KPI DASHBOARD
 # ===============================
 st.subheader("📊 Farm Performance Overview")
 
@@ -127,6 +128,8 @@ fig3.add_hline(y=threshold, line_dash="dash")
 
 st.plotly_chart(fig3, use_container_width=True)
 
+st.divider()
+
 # ===============================
 # HEATMAP SENSOR
 # ===============================
@@ -155,20 +158,42 @@ st.subheader("📌 Farm Insight & Recommendation")
 if current_moisture < threshold:
 
     st.error("""
-    ⚠️ **Low Soil Moisture Detected**
+⚠️ **Low Soil Moisture Detected**
 
-    Recommendation:
-    - Activate irrigation system
-    - Monitor moisture level every 2 hours
-    - Check rainfall forecast
-    """)
+Recommendation:
+- Activate irrigation system
+- Monitor moisture level frequently
+- Check rainfall forecast
+""")
 
 else:
 
     st.success("""
-    ✅ **Soil Moisture Within Optimal Range**
+✅ **Soil Moisture Within Optimal Range**
 
-    Recommendation:
-    - No irrigation required
-    - Continue monitoring daily
-    """)
+Recommendation:
+- No irrigation required
+- Continue daily monitoring
+""")
+
+st.divider()
+
+# ===============================
+# DATASET PREVIEW
+# ===============================
+st.subheader("📂 Dataset Preview")
+
+st.markdown("""
+Bagian ini menampilkan **cuplikan dataset sensor** yang digunakan untuk analisis dashboard.
+Dataset berisi data pengamatan kondisi tanah pada beberapa hari.
+""")
+
+col1, col2 = st.columns(2)
+
+col1.write("Total Rows:", df.shape[0])
+col2.write("Total Columns:", df.shape[1])
+
+show_data = st.checkbox("Show Raw Dataset")
+
+if show_data:
+    st.dataframe(df, use_container_width=True)
