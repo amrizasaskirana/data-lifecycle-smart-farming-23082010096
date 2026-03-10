@@ -3,13 +3,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
+import os
 
 st.set_page_config(page_title="Smart Farming Dashboard", layout="wide")
 
 st.title("🌱 Smart Farming Sensor Dashboard")
 
+# ===============================
 # Load dataset
-df = pd.read_csv("Smart_Farming_Crop_Yield_2024.csv")
+# ===============================
+data_path = os.path.join("..", "data", "raw", "Smart_Farming_Crop_Yield_2024.csv")
+df = pd.read_csv(data_path)
 
 # ===============================
 # Sidebar
