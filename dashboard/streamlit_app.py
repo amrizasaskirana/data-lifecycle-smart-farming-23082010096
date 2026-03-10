@@ -190,10 +190,13 @@ Dataset berisi data pengamatan kondisi tanah pada beberapa hari.
 
 col1, col2 = st.columns(2)
 
-col1.write("Total Rows:", df.shape[0])
-col2.write("Total Columns:", df.shape[1])
+with col1:
+    st.metric("Total Rows", df.shape[0])
+
+with col2:
+    st.metric("Total Columns", df.shape[1])
 
 show_data = st.checkbox("Show Raw Dataset")
 
 if show_data:
-    st.dataframe(df, use_container_width=True)
+    st.dataframe(df.head(20), use_container_width=True)
