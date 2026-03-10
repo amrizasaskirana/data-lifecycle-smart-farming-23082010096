@@ -22,65 +22,43 @@ Data yang berkualitas adalah fondasi dari analisis yang akurat dan pengambilan k
 8. Dashboard Insight – Cepat menilai kesehatan dataset sebelum proses analisis atau modelisasi.
 
 🔹 Alur Kerja Dashboard
-
-Upload CSV – Pengguna memilih file CSV dari perangkat lokal.
-
-Pra-pemrosesan Data – Aplikasi secara otomatis mengisi missing values (opsional) dan mengubah kolom tanggal menjadi format datetime.
-
-Perhitungan Metrik – Menghitung Accuracy, Completeness, dan Timeliness:
-
-Accuracy = 1 – (jumlah sel missing / total sel)
-
-Completeness = (jumlah sel non-null / total sel)
-
-Timeliness = persentase data dalam 30 hari terakhir
-
-Visualisasi Interaktif – Tampilkan bar chart dengan persentase dari setiap metrik.
-
-Analisis Lanjutan – Bisa melihat metrik per kolom untuk menemukan area perbaikan data.
+1. Upload CSV – Pengguna memilih file CSV dari perangkat lokal.
+2. Pra-pemrosesan Data – Aplikasi secara otomatis mengisi missing values (opsional) dan mengubah kolom tanggal menjadi format datetime.
+3. Perhitungan Metrik – Menghitung Accuracy, Completeness, dan Timeliness:
+    - Accuracy = 1 – (jumlah sel missing / total sel)
+    - Completeness = (jumlah sel non-null / total sel)
+    - Timeliness = persentase data dalam 30 hari terakhir
+    - Visualisasi Interaktif – Tampilkan bar chart dengan persentase dari setiap metrik.
+    - Analisis Lanjutan – Bisa melihat metrik per kolom untuk menemukan area perbaikan data.
 
 🔹 Instalasi
-
-Clone repository:
-
-git clone https://github.com/username/data-quality-dashboard.git
-cd data-quality-dashboard
+1. Clone repository:
+    git clone https://github.com/username/data-quality-dashboard.git
+    cd data-quality-dashboard
 
 Buat virtual environment:
-
 python -m venv venv
 source venv/bin/activate   # Linux/MacOS
 venv\Scripts\activate      # Windows
 
 Install dependencies:
-
 pip install -r requirements.txt
 
 Dependencies utama: streamlit, pandas, plotly
 
 🔹 Cara Menjalankan
-
 Jalankan aplikasi Streamlit:
-
 streamlit run dq_dashboard.py
-
 Aplikasi akan terbuka di browser pada URL: http://localhost:8501.
-
 Upload CSV, dan dashboard akan otomatis menampilkan Data Quality Score dan visualisasi.
 
 🔹 Contoh Screenshot dan Visualisasi
 Preview Data
-
 Tampilan pratinjau dataset setelah upload CSV:
-
-
 Data Quality Scores
 
 Grafik batang interaktif menampilkan persentase Accuracy, Completeness, Timeliness:
-
-
 Timeliness Trend
-
 Jika tersedia kolom timestamp, visualisasi persentase data terbaru dalam 30 hari terakhir:
 
 
